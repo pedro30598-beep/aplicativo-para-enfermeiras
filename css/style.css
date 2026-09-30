@@ -1,0 +1,1166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #f5f7fa;
+    --fundo-card: #ffffff;
+    --texto: #1f2937;
+    --texto-secundario: #6b7280;
+    --principal: #2563eb;
+    --principal-hover: #1d4ed8;
+    --borda: #dbe1e8;
+    --header: #dbeafe;
+    --header-borda: #bfdbfe;
+    --sombra: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.tema-escuro {
+    --fundo: #111827;
+    --fundo-card: #1f2937;
+    --texto: #f9fafb;
+    --texto-secundario: #9ca3af;
+    --principal: #3b82f6;
+    --principal-hover: #60a5fa;
+    --borda: #374151;
+    --header: #172554;
+    --header-borda: #1e3a8a;
+    --sombra: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 5%;
+    background: var(--header);
+    border-bottom: 1px solid var(--header-borda);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.logo h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--principal);
+    letter-spacing: -2px;
+    transition: color 0.3s ease;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu a,
+.btn-sair {
+    text-decoration: none;
+    color: var(--texto);
+    background: transparent;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.menu a:hover,
+.menu a.ativo {
+    background: var(--principal);
+    color: white;
+}
+
+.btn-sair:hover {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-tema {
+    border: 1px solid var(--borda);
+    background: var(--fundo-card);
+    color: var(--texto);
+    padding: 9px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-tema:hover {
+    border-color: var(--principal);
+}
+
+main {
+    flex: 1;
+}
+
+.inicio {
+    min-height: calc(100vh - 140px);
+    padding: 60px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.inicio-conteudo {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+.inicio-subtitulo {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--principal);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.inicio-conteudo h2 {
+    font-size: clamp(32px, 6vw, 58px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.inicio-conteudo p {
+    max-width: 700px;
+    margin: 0 auto 15px;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--principal);
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.botao:hover {
+    background: var(--principal-hover);
+    transform: translateY(-1px);
+}
+
+.botao.secundario {
+    background: transparent;
+    color: var(--principal);
+    border: 1px solid var(--principal);
+}
+
+.botao.secundario:hover {
+    background: var(--principal);
+    color: white;
+}
+
+.inicio-animacao {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: -3;
+    opacity: 0.45;
+    transform: translateY(-110px);
+    overflow: hidden;
+}
+
+.inicio-animacao lottie-player {
+    width: min(850px, 90vw);
+    height: min(850px, 90vw);
+    pointer-events: none;
+}
+
+.inicio-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--fundo);
+    opacity: 0.58;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.inicio-recursos {
+    width: 100%;
+    max-width: 900px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.recurso-card {
+    padding: 20px;
+    background: color-mix(in srgb, var(--fundo-card) 88%, transparent);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+}
+
+.recurso-card:hover {
+    transform: translateY(-3px);
+}
+
+.recurso-card h3 {
+    margin-bottom: 8px;
+    color: var(--principal);
+    font-size: 17px;
+}
+
+.recurso-card p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background: var(--header);
+    border-top: 1px solid var(--header-borda);
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+.pagina {
+    width: min(1000px, 92%);
+    margin: 40px auto;
+}
+
+.pagina-cabecalho {
+    margin-bottom: 30px;
+}
+
+.pagina-cabecalho h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.pagina-cabecalho p {
+    color: var(--texto-secundario);
+}
+
+.formulario {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--sombra);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea,
+#pesquisaPaciente {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    outline: none;
+    background: var(--fundo-card);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 15px;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.2s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus,
+#pesquisaPaciente:focus {
+    border-color: var(--principal);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.pacientes-acoes {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.pacientes-acoes input {
+    flex: 1;
+}
+
+.lista-pacientes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.paciente-card {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--sombra);
+}
+
+.paciente-card h3 {
+    margin-bottom: 6px;
+}
+
+.paciente-card p {
+    color: var(--texto-secundario);
+    margin-bottom: 8px;
+}
+
+.paciente-card span {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: var(--principal);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nenhum-paciente {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.nenhum-paciente p {
+    margin-top: 8px;
+    color: var(--texto-secundario);
+}
+
+.tela-login {
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--fundo);
+}
+
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: min(430px, 100%);
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    padding: 38px;
+    box-shadow: var(--sombra);
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-logo h1 {
+    color: var(--principal);
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.login-logo p {
+    color: var(--texto-secundario);
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.login-titulo {
+    margin-bottom: 25px;
+}
+
+.login-titulo h2 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.login-titulo p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.login-form .campo {
+    margin-bottom: 18px;
+}
+
+.login-form .campo label {
+    margin-bottom: 2px;
+}
+
+.login-form .campo input {
+    min-height: 48px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+.login-form .campo input:focus {
+    border-color: var(--principal);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.login-form .campo input::placeholder {
+    color: var(--texto-secundario);
+    opacity: 0.75;
+}
+
+.login-opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 22px;
+    font-size: 13px;
+}
+
+.lembrar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--texto-secundario);
+    cursor: pointer;
+}
+
+.lembrar input {
+    accent-color: var(--principal);
+    cursor: pointer;
+}
+
+.esqueci-senha {
+    color: var(--principal);
+    text-decoration: none;
+}
+
+.esqueci-senha:hover {
+    text-decoration: underline;
+}
+
+.login-card .login-botao {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.20);
+}
+
+.login-card .login-botao:hover {
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.login-registro {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid var(--borda);
+    text-align: center;
+}
+
+.login-registro p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+.login-registro a {
+    color: var(--principal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-registro a:hover {
+    text-decoration: underline;
+}
+
+.login-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--principal);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.login-tema {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+}
+
+.coren-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.coren-overlay.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.coren-modal {
+    width: min(450px, 100%);
+    background: var(--fundo-card);
+    color: var(--texto);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: var(--sombra);
+}
+
+.coren-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: var(--principal);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.coren-modal h2 {
+    margin-bottom: 10px;
+}
+
+.coren-modal > p {
+    color: var(--texto-secundario);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.setembro-aba {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(520px, 90%);
+    padding: 16px 22px;
+    background: #f5c400;
+    color: #171717;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.18);
+    transition: 0.2s;
+}
+
+.setembro-aba:hover {
+    background: #ffd52f;
+    padding-bottom: 19px;
+}
+
+.setembro-seta {
+    font-size: 22px;
+}
+
+.setembro-painel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 1100;
+    padding: 15px;
+}
+
+.setembro-painel.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.setembro-conteudo {
+    position: relative;
+    width: min(850px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #ffcc18;
+    color: #171717;
+    border-radius: 26px 26px 14px 14px;
+    padding: 32px;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, 0.4);
+}
+
+.setembro-fechar {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.setembro-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-right: 50px;
+    margin-bottom: 25px;
+}
+
+.setembro-simbolo {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 31px;
+}
+
+.setembro-cabecalho h2 {
+    margin: 0 0 6px;
+    font-size: 31px;
+}
+
+.setembro-cabecalho p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.setembro-introducao {
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 16px;
+    padding: 21px;
+    margin-bottom: 20px;
+}
+
+.setembro-introducao h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.setembro-introducao p {
+    margin: 0;
+    line-height: 1.65;
+}
+
+.setembro-blocos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.setembro-bloco {
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.setembro-numero {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.setembro-bloco h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.setembro-bloco p {
+    margin: 0;
+    line-height: 1.55;
+    font-size: 14px;
+}
+
+.setembro-nao-faca {
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.setembro-nao-faca h3 {
+    margin: 0 0 12px;
+    font-size: 19px;
+}
+
+.setembro-nao-faca ul {
+    margin: 0;
+    padding-left: 21px;
+}
+
+.setembro-nao-faca li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.setembro-nao-faca li:last-child {
+    margin-bottom: 0;
+}
+
+.setembro-ajuda {
+    margin-top: 15px;
+    padding: 20px;
+    background: #171717;
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.setembro-ajuda-icone {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: white;
+    color: #171717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.setembro-ajuda strong {
+    font-size: 18px;
+}
+
+.setembro-ajuda p {
+    margin: 5px 0 0;
+    line-height: 1.5;
+}
+
+.setembro-final {
+    text-align: center;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.setembro-final p {
+    margin: 0;
+}
+
+.setembro-ajuda a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #f5c400;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.setembro-ajuda a:hover {
+    text-decoration: underline;
+}
+
+body,
+.header,
+.footer,
+.formulario,
+.paciente-card,
+.nenhum-paciente,
+.login-card,
+.coren-modal,
+.campo input,
+.campo select,
+.campo textarea,
+#pesquisaPaciente {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (max-width: 800px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .btn-tema {
+        margin: 0 auto;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .inicio {
+        padding: 45px 20px;
+    }
+
+    .inicio-conteudo h2 {
+        font-size: 36px;
+    }
+
+    .inicio-animacao {
+        opacity: 0.32;
+    }
+
+    .inicio-animacao lottie-player {
+        width: 650px;
+        height: 650px;
+    }
+
+    .inicio-recursos {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-top: 35px;
+    }
+
+    .recurso-card {
+        padding: 18px;
+    }
+
+    .pagina {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    .setembro-blocos {
+        grid-template-columns: 1fr;
+    }
+
+    .login-container {
+        padding: 35px 20px;
+    }
+
+    .login-card {
+        width: min(430px, 100%);
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 15px;
+    }
+
+    .menu {
+        gap: 5px;
+    }
+
+    .menu a,
+    .btn-sair {
+        font-size: 12px;
+        padding: 9px 7px;
+    }
+
+    .inicio {
+        min-height: calc(100vh - 170px);
+        padding: 35px 18px;
+    }
+
+    .inicio-conteudo h2 {
+        font-size: 30px;
+    }
+
+    .inicio-conteudo p {
+        font-size: 16px;
+    }
+
+    .inicio-animacao {
+        opacity: 0.27;
+    }
+
+    .inicio-animacao lottie-player {
+        width: 500px;
+        height: 500px;
+    }
+
+    .inicio-overlay {
+        opacity: 0.62;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .botoes .botao {
+        width: 100%;
+    }
+
+    .linha {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .formulario {
+        padding: 20px;
+    }
+
+    .pacientes-acoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .paciente-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .paciente-card .botao {
+        width: 100%;
+    }
+
+    .login-container {
+        min-height: 100svh;
+        padding: 80px 15px 25px;
+    }
+
+    .login-card {
+        width: 100%;
+        padding: 30px 22px;
+        border-radius: 18px;
+    }
+
+    .login-logo {
+        margin-bottom: 24px;
+    }
+
+    .login-logo h1 {
+        font-size: 38px;
+    }
+
+    .login-logo p {
+        font-size: 13px;
+    }
+
+    .login-titulo {
+        margin-bottom: 22px;
+    }
+
+    .login-titulo h2 {
+        font-size: 23px;
+    }
+
+    .login-form .campo input {
+        min-height: 47px;
+    }
+
+    .login-opcoes {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .lembrar {
+        font-size: 12px;
+    }
+
+    .esqueci-senha {
+        font-size: 12px;
+    }
+
+    .login-card .login-botao {
+        min-height: 48px;
+    }
+
+    .login-registro {
+        margin-top: 22px;
+        padding-top: 19px;
+    }
+
+    .login-registro p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .login-tema {
+        top: 12px;
+        right: 12px;
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .inicio-recursos {
+        margin-top: 30px;
+        gap: 12px;
+    }
+
+    .recurso-card {
+        padding: 16px;
+    }
+
+    .recurso-card p {
+        font-size: 13px;
+    }
+
+    .setembro-aba {
+        width: 85%;
+        padding: 13px 15px;
+        font-size: 14px;
+    }
+
+    .setembro-painel {
+        padding: 0;
+    }
+
+    .setembro-conteudo {
+        max-height: 94vh;
+        border-radius: 22px 22px 0 0;
+        padding: 22px 18px 30px;
+    }
+
+    .setembro-cabecalho {
+        gap: 12px;
+    }
+
+    .setembro-simbolo {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    .setembro-cabecalho h2 {
+        font-size: 24px;
+    }
+
+    .setembro-cabecalho p {
+        font-size: 13px;
+    }
+
+    .setembro-introducao {
+        padding: 16px;
+    }
+
+    .setembro-blocos {
+        grid-template-columns: 1fr;
+    }
+
+    .setembro-bloco {
+        padding: 16px;
+    }
+
+    .setembro-numero {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+    }
+
+    .setembro-ajuda {
+        padding: 16px;
+    }
+}
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NF&M - Pacientes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <h1>nf&m</h1>
+        </div>
+
+        <button id="btnTema" class="btn-tema" type="button">
+            Tema escuro
+        </button>
+
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="cadastro.html">Cadastrar paciente</a>
+            <a href="pacientes.html" class="ativo">Pacientes</a>
+            <button id="btnSair" class="btn-sair" type="button">Sair</button>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="pagina">
+
+            <div class="pagina-cabecalho">
+                <h2>Pacientes</h2>
+                <p>Consulte os pacientes cadastrados no sistema.</p>
+            </div>
+
+            <div class="pacientes-acoes">
+
+                <input
+                    type="search"
+                    id="pesquisaPaciente"
+                    placeholder="Pesquisar paciente..."
+                >
+
+                <a href="cadastro.html" class="botao">
+                    Cadastrar paciente
+                </a>
+
+            </div>
+
+            <div id="listaPacientes" class="lista-pacientes"></div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>NF&M - Sistema de Enfermagem</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pacientes.js"></script>
+
+</body>
+
+</html>

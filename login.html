@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NF&M - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <section class="login-card">
+
+            <div class="login-logo">
+                <h1>nf&m</h1>
+                <p>Sistema de Enfermagem</p>
+            </div>
+
+            <div class="login-titulo">
+                <h2>Bem-vinda</h2>
+                <p>Entre na sua conta para continuar.</p>
+            </div>
+
+            <form id="formLogin" class="login-form">
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <div class="login-opcoes">
+
+                    <label class="lembrar">
+                        <input type="checkbox" id="lembrar">
+                        <span>Lembrar de mim</span>
+                    </label>
+
+                    <a href="#" class="esqueci-senha">
+                        Esqueci minha senha
+                    </a>
+
+                </div>
+
+                <button type="submit" class="botao login-botao">
+                    Entrar
+                </button>
+
+            </form>
+
+            <div class="login-registro">
+                <p>
+                    Ainda não possui uma conta?
+                    <a href="registro.html">Criar conta</a>
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <button id="btnTema" class="btn-tema login-tema" type="button">
+        Tema escuro
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
